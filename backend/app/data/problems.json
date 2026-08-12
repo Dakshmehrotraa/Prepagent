@@ -1,0 +1,226 @@
+{
+  "patterns": [
+    "two_pointers",
+    "sliding_window",
+    "binary_search",
+    "dfs_backtracking",
+    "bfs_graph",
+    "dynamic_programming",
+    "greedy",
+    "heap_priority_queue",
+    "union_find",
+    "prefix_sum_hashing"
+  ],
+  "problems": [
+    {
+      "id": "p001",
+      "title": "Two Sum",
+      "pattern": "prefix_sum_hashing",
+      "difficulty": "easy",
+      "statement": "Given an array of integers nums and a target, return indices of the two numbers such that they add up to target. Assume exactly one solution exists.",
+      "hint": "Use a hashmap to store value -> index while scanning once; check for complement (target - num) at each step.",
+      "time_complexity": "O(n)",
+      "space_complexity": "O(n)"
+    },
+    {
+      "id": "p002",
+      "title": "Container With Most Water",
+      "pattern": "two_pointers",
+      "difficulty": "medium",
+      "statement": "Given n non-negative integers representing heights, find two lines that together with the x-axis form a container holding the most water.",
+      "hint": "Start pointers at both ends; move the pointer at the shorter line inward, since moving the taller one can never increase area.",
+      "time_complexity": "O(n)",
+      "space_complexity": "O(1)"
+    },
+    {
+      "id": "p003",
+      "title": "3Sum",
+      "pattern": "two_pointers",
+      "difficulty": "medium",
+      "statement": "Given an array nums, return all unique triplets that sum to zero.",
+      "hint": "Sort the array, fix one element, then use two pointers on the remaining subarray to find pairs summing to the negative of the fixed element.",
+      "time_complexity": "O(n^2)",
+      "space_complexity": "O(1) excluding output"
+    },
+    {
+      "id": "p004",
+      "title": "Longest Substring Without Repeating Characters",
+      "pattern": "sliding_window",
+      "difficulty": "medium",
+      "statement": "Given a string s, find the length of the longest substring without repeating characters.",
+      "hint": "Maintain a window with a set/map of seen characters; shrink from the left when a duplicate is found.",
+      "time_complexity": "O(n)",
+      "space_complexity": "O(min(n, charset))"
+    },
+    {
+      "id": "p005",
+      "title": "Minimum Window Substring",
+      "pattern": "sliding_window",
+      "difficulty": "hard",
+      "statement": "Given strings s and t, find the minimum window in s which contains all characters of t.",
+      "hint": "Expand the right pointer until the window is valid, then contract from the left while tracking the smallest valid window.",
+      "time_complexity": "O(n + m)",
+      "space_complexity": "O(charset)"
+    },
+    {
+      "id": "p006",
+      "title": "Search in Rotated Sorted Array",
+      "pattern": "binary_search",
+      "difficulty": "medium",
+      "statement": "Given a rotated sorted array and a target, search the target and return its index or -1.",
+      "hint": "At each step one half of the array is guaranteed sorted; check which half is sorted, then decide which half to recurse into.",
+      "time_complexity": "O(log n)",
+      "space_complexity": "O(1)"
+    },
+    {
+      "id": "p007",
+      "title": "Find Minimum in Rotated Sorted Array",
+      "pattern": "binary_search",
+      "difficulty": "medium",
+      "statement": "Find the minimum element in a rotated sorted array with no duplicates.",
+      "hint": "Compare mid with the rightmost element to decide which half contains the inflection point.",
+      "time_complexity": "O(log n)",
+      "space_complexity": "O(1)"
+    },
+    {
+      "id": "p008",
+      "title": "Subsets",
+      "pattern": "dfs_backtracking",
+      "difficulty": "medium",
+      "statement": "Given an integer array of unique elements, return all possible subsets (the power set).",
+      "hint": "At each index, branch into 'include' and 'exclude' recursive calls, backtracking after each choice.",
+      "time_complexity": "O(2^n)",
+      "space_complexity": "O(n) recursion depth"
+    },
+    {
+      "id": "p009",
+      "title": "Word Search",
+      "pattern": "dfs_backtracking",
+      "difficulty": "medium",
+      "statement": "Given a 2D board and a word, determine if the word exists in the grid by moving to adjacent cells.",
+      "hint": "DFS from each starting cell, marking visited cells temporarily and un-marking on backtrack.",
+      "time_complexity": "O(n * m * 4^L)",
+      "space_complexity": "O(L) recursion depth"
+    },
+    {
+      "id": "p010",
+      "title": "Number of Islands",
+      "pattern": "bfs_graph",
+      "difficulty": "medium",
+      "statement": "Given a 2D grid of '1's (land) and '0's (water), count the number of islands.",
+      "hint": "BFS or DFS flood-fill from each unvisited land cell, marking connected land as visited.",
+      "time_complexity": "O(n * m)",
+      "space_complexity": "O(n * m)"
+    },
+    {
+      "id": "p011",
+      "title": "Course Schedule",
+      "pattern": "bfs_graph",
+      "difficulty": "medium",
+      "statement": "Given prerequisites as a directed graph, determine if all courses can be finished (i.e., no cycle).",
+      "hint": "Topological sort via Kahn's algorithm (BFS with in-degree counting) or DFS cycle detection.",
+      "time_complexity": "O(V + E)",
+      "space_complexity": "O(V + E)"
+    },
+    {
+      "id": "p012",
+      "title": "Climbing Stairs",
+      "pattern": "dynamic_programming",
+      "difficulty": "easy",
+      "statement": "You can climb 1 or 2 steps at a time. Count distinct ways to reach the top of n stairs.",
+      "hint": "This is Fibonacci in disguise: dp[i] = dp[i-1] + dp[i-2].",
+      "time_complexity": "O(n)",
+      "space_complexity": "O(1) with rolling variables"
+    },
+    {
+      "id": "p013",
+      "title": "Longest Increasing Subsequence",
+      "pattern": "dynamic_programming",
+      "difficulty": "medium",
+      "statement": "Given an integer array, find the length of the longest strictly increasing subsequence.",
+      "hint": "dp[i] = 1 + max(dp[j]) for all j < i where nums[j] < nums[i]; optimize with patience sorting + binary search for O(n log n).",
+      "time_complexity": "O(n log n) optimized",
+      "space_complexity": "O(n)"
+    },
+    {
+      "id": "p014",
+      "title": "Coin Change",
+      "pattern": "dynamic_programming",
+      "difficulty": "medium",
+      "statement": "Given coin denominations and an amount, find the fewest coins needed to make that amount.",
+      "hint": "Bottom-up dp where dp[a] = min(dp[a - coin] + 1) over all coins; initialize dp[0] = 0.",
+      "time_complexity": "O(amount * coins)",
+      "space_complexity": "O(amount)"
+    },
+    {
+      "id": "p015",
+      "title": "Jump Game",
+      "pattern": "greedy",
+      "difficulty": "medium",
+      "statement": "Given an array where each element is the max jump length from that position, determine if you can reach the last index.",
+      "hint": "Track the farthest reachable index while iterating; if current index exceeds farthest reachable, return false.",
+      "time_complexity": "O(n)",
+      "space_complexity": "O(1)"
+    },
+    {
+      "id": "p016",
+      "title": "Gas Station",
+      "pattern": "greedy",
+      "difficulty": "medium",
+      "statement": "Given gas and cost arrays for a circular route, find the starting station index to complete the circuit, or -1.",
+      "hint": "If total gas >= total cost a solution exists; track running tank and reset start whenever tank goes negative.",
+      "time_complexity": "O(n)",
+      "space_complexity": "O(1)"
+    },
+    {
+      "id": "p017",
+      "title": "Kth Largest Element in an Array",
+      "pattern": "heap_priority_queue",
+      "difficulty": "medium",
+      "statement": "Find the kth largest element in an unsorted array.",
+      "hint": "Maintain a min-heap of size k while scanning; the heap top is the answer at the end.",
+      "time_complexity": "O(n log k)",
+      "space_complexity": "O(k)"
+    },
+    {
+      "id": "p018",
+      "title": "Merge k Sorted Lists",
+      "pattern": "heap_priority_queue",
+      "difficulty": "hard",
+      "statement": "Merge k sorted linked lists into one sorted list.",
+      "hint": "Push the head of each list into a min-heap keyed by value; pop the min, push its next node, repeat.",
+      "time_complexity": "O(n log k)",
+      "space_complexity": "O(k)"
+    },
+    {
+      "id": "p019",
+      "title": "Number of Connected Components in an Undirected Graph",
+      "pattern": "union_find",
+      "difficulty": "medium",
+      "statement": "Given n nodes and a list of edges, count the number of connected components.",
+      "hint": "Union-Find with path compression and union by rank; count distinct roots at the end.",
+      "time_complexity": "O(n * alpha(n))",
+      "space_complexity": "O(n)"
+    },
+    {
+      "id": "p020",
+      "title": "Redundant Connection",
+      "pattern": "union_find",
+      "difficulty": "medium",
+      "statement": "Given a graph that was a tree with one extra edge added, find the edge that can be removed to restore a tree.",
+      "hint": "Process edges in order, union the endpoints; the first edge whose endpoints are already connected is the redundant one.",
+      "time_complexity": "O(n * alpha(n))",
+      "space_complexity": "O(n)"
+    },
+    {
+      "id": "p021",
+      "title": "Subarray Sum Equals K",
+      "pattern": "prefix_sum_hashing",
+      "difficulty": "medium",
+      "statement": "Given an array and integer k, find the total number of contiguous subarrays that sum to k.",
+      "hint": "Maintain a running prefix sum and a hashmap of prefix-sum frequencies; check for (prefix_sum - k) at each step.",
+      "time_complexity": "O(n)",
+      "space_complexity": "O(n)"
+    }
+  ]
+}

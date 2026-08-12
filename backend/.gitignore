@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.env
+app/retrieval/index_store/
+app/models/lora_classifier/
+venv/
