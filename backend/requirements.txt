@@ -7,5 +7,4 @@ sentence-transformers==3.1.1
 faiss-cpu==1.8.0.post1
 transformers==4.44.2
 peft==0.13.0
-torch==2.4.1
 numpy==1.26.4
